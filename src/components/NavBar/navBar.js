@@ -1,11 +1,10 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
+import ShowCartBtn from "./showCartBtn";
 
-import React from "react";
-
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <Navbar expand="sm" className="bg-dark fixed-top">
       <Container>
@@ -27,12 +26,7 @@ const NavBar = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <div>
-          <Button variant="outline-info" className="border-3 rounded-3">
-            cart
-          </Button>
-          <span className="m-2 align-top fs-3 text-info">8</span>
-        </div>
+        <ShowCartBtn showCartModel={props.showCartModel} />
       </Container>
     </Navbar>
   );
