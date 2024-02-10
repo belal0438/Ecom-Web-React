@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import CartContext from "../../ContextApi/cart-context";
 import "./CustomeCssforScaleUp.css";
 
-const CardContainer = ({ title, price, imageUrl }) => {
+const CardContainer = (props) => {
+  const { title, price, imageUrl } = props;
+  const cartCxt = useContext(CartContext);
+  const AddToCartOnclickHanldler = (eve) => {
+    eve.preventDefault();
+    cartCxt.addItem(props);
+  };
+
   return (
     <Card
       style={{ width: "18rem", overflow: "hidden", border: "0" }}
@@ -21,7 +28,9 @@ const CardContainer = ({ title, price, imageUrl }) => {
         <Card.Text style={{ fontSize: "1.4rem", letterSpacing: "0.1px" }}>
           ${price}
         </Card.Text>
-        <Button variant="info">Add to Cart</Button>
+        <Button variant="info" onClick={AddToCartOnclickHanldler}>
+          Add to Cart
+        </Button>
       </Card.Body>
     </Card>
   );

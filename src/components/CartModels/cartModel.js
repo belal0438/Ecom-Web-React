@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CloseButton from "react-bootstrap/CloseButton";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import TableValue from "./tableValue";
 import OverLay from "./overLay";
+import CartContext from "../ContextApi/cart-context";
 
 const CartModel = (props) => {
+  const cntxt = useContext(CartContext);
   return (
     <OverLay>
       <Card style={{ width: "30rem" }}>
@@ -28,7 +30,9 @@ const CartModel = (props) => {
             }}
             className="d-flex justify-content-end gap-4">
             <h3>Total</h3>
-            <span style={{ fontSize: "20px", marginRight: "6px" }}>$20</span>
+            <span style={{ fontSize: "20px", marginRight: "6px" }}>
+              ${cntxt.Total}
+            </span>
           </div>
           <Button variant="info">PURCHASE</Button>
         </Card.Body>

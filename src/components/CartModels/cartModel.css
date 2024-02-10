@@ -12,3 +12,14 @@
   z-index: 30;
   background-color: white;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .model-backdrop {
+    left: 50%;
+  }
+
+  .model-Overlay {
+    left: 50%;
+  }
+}
