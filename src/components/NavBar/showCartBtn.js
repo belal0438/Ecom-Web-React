@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import CartContext from "../ContextApi/cart-context";
 
 const ShowCartBtn = (props) => {
+  // console.log("propsOnShowCart", props);
+
   const cntxt = useContext(CartContext);
   let totalQauntity = cntxt.items.length;
   if (totalQauntity < 1) {

@@ -57,7 +57,7 @@ const NavBar = (props) => {
             </NavLink>
           </Nav>
         </Navbar.Collapse>
-        {cartBtn && <ShowCartBtn />}
+        {cartBtn && <ShowCartBtn showCartModel={props.showCartModel} />}
       </Container>
     </Navbar>
   );

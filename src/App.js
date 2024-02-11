@@ -3,20 +3,12 @@ import NavBar from "./components/NavBar/navBar";
 import CartModel from "./components/CartModels/cartModel";
 import ContextProvider from "./components/ContextApi/contextProvider";
 import GenericsHeading from "./components/Store/Generics/genericsHeading";
+import StoreGridCard from "./components/Store/StorePart/gridCard";
 
-function App() {
-  const [showCart, setShowCart] = useState(false);
-  const CartModelShow = () => {
-    setShowCart(true);
-  };
-
-  const closeCartModel = () => {
-    setShowCart(false);
-  };
-
+function App({ showCart, cartModelShow, closeCartModel }) {
   return (
     <ContextProvider>
-      <NavBar showCartModel={CartModelShow} />
+      <NavBar showCartModel={cartModelShow} />
       <GenericsHeading />
       {showCart && <CartModel CloseCartModel={closeCartModel} />}
     </ContextProvider>
