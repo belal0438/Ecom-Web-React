@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import NavBar from "./components/NavBar/navBar";
-import StorePage from "./components/Store/storePage";
-import FooterPage from "./components/Footers/footerPage";
 import CartModel from "./components/CartModels/cartModel";
 import ContextProvider from "./components/ContextApi/contextProvider";
+import GenericsHeading from "./components/Store/Generics/genericsHeading";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
-
   const CartModelShow = () => {
     setShowCart(true);
   };
@@ -19,9 +17,8 @@ function App() {
   return (
     <ContextProvider>
       <NavBar showCartModel={CartModelShow} />
-      <StorePage />
+      <GenericsHeading />
       {showCart && <CartModel CloseCartModel={closeCartModel} />}
-      <FooterPage />
     </ContextProvider>
   );
 }
