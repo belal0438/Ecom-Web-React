@@ -20,6 +20,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import App from "./App";
 import FooterPage from "./components/Footers/footerPage";
+import ContextProvider from "./components/ContextApi/contextProvider";
 
 const Layout = () => {
   const [showCart, setShowCart] = useState(false);
@@ -33,7 +34,7 @@ const Layout = () => {
   };
 
   return (
-    <>
+    <ContextProvider>
       <App
         showCart={showCart}
         cartModelShow={cartModelShow}
@@ -41,7 +42,7 @@ const Layout = () => {
       />
       <Outlet />
       <FooterPage />
-    </>
+    </ContextProvider>
   );
 };
 
