@@ -1,51 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-const ArrOfMusice = [
-  {
-    Date: "JUL16",
-    City: "DETROIT, MI",
-    Theater: "DTE ENERGY MUSIC THEATRE",
-  },
-
-  {
-    Date: "JUL19",
-    City: "TORONTO,ON",
-    Theater: "BUDWEISER STAGE",
-  },
-
-  {
-    Date: "JUL22",
-    City: " BRISTOW, VA",
-    Theater: "JIGGY LUBE LIVE",
-  },
-  {
-    Date: "JUL 29",
-    City: " PHOENIX, AZ",
-    Theater: "AK-CHIN PAVILION",
-  },
-  {
-    Date: "AUG 2",
-    City: " LAS VEGAS, NV",
-    Theater: "T-MOBILE ARENA",
-  },
-];
-
-const TrandTd = ArrOfMusice.map((Ele, index) => (
-  <tr key={index}>
-    <td scope="row">{Ele.Date}</td>
-    <td>{Ele.City}</td>
-    <td>{Ele.Theater}</td>
-    <td>
-      <Button variant="info" className="text-center text-light">
-        BUY TICKETS
-      </Button>{" "}
-    </td>
-  </tr>
-));
-
 const TouresTable = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        const response = await fetch("https://swapi.dev/api/films");
+        const result = await response.json();
+
+        if (result.results) {
+          const movieData = result.results.map((ele) => ({
+            id: ele.episode_id,
+            title: ele.title,
+            date: ele.release_date,
+            director: ele.director,
+          }));
+
+          setData(movieData);
+        }
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      }
+    };
+
+    fetchMovieData();
+  }, []);
+  // console.log("data", data);
+  const TrandTd = data.map((Ele) => (
+    <tr key={Ele.id}>
+      <td scope="row">{Ele.date}</td>
+      <td>{Ele.title}</td>
+      <td>{Ele.director}</td>
+      <td>
+        <Button variant="info" className="text-center text-light">
+          BUY TICKETS
+        </Button>{" "}
+      </td>
+    </tr>
+  ));
+
   return (
     <div
       style={{
