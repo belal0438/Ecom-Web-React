@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 
 const TouresTable = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch("https://swapi.dev/api/films");
         const result = await response.json();
 
@@ -19,6 +21,7 @@ const TouresTable = () => {
           }));
 
           setData(movieData);
+          setIsLoading(false);
         }
       } catch (error) {
         console.error("Error fetching movie data:", error);
@@ -51,7 +54,9 @@ const TouresTable = () => {
       <h3 className="text-center mt-4 mb-4">Toures</h3>
       <Table className="text-center ms-5 me-5">
         <thead></thead>
-        <tbody>{TrandTd}</tbody>
+        {!isLoading && data.length > 0 && <tbody>{TrandTd}</tbody>}
+        {!isLoading && data.length === 0 && <p>No Movies found</p>}
+        {isLoading && <p>Loading.....</p>}
       </Table>
     </div>
   );
