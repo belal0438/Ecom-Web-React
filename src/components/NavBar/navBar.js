@@ -11,7 +11,11 @@ const NavBar = (props) => {
 
   useEffect(() => {
     // Check the pathname to determine whether to show the cart button
-    if (location.pathname === "/Home" || location.pathname === "/About") {
+    if (
+      location.pathname === "/Home" ||
+      location.pathname === "/About" ||
+      location.pathname === "/Contact"
+    ) {
       setCartBtn(false);
     } else {
       setCartBtn(true);
@@ -54,6 +58,18 @@ const NavBar = (props) => {
                 `${isActive ? "text-light" : "text-light text-decoration-none"}`
               }>
               ABOUT
+            </NavLink>
+
+            <NavLink
+              to="/Contact"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-light me-4 ms-4"
+                    : "text-light me-4 ms-4 text-decoration-none"
+                }`
+              }>
+              CONTACT
             </NavLink>
           </Nav>
         </Navbar.Collapse>
