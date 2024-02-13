@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CartContext from "../../ContextApi/cart-context";
 import "./CustomeCssforScaleUp.css";
+import { NavLink } from "react-router-dom";
 
 const CardContainer = (props) => {
   const { title, price, imageUrl } = props;
@@ -24,11 +25,31 @@ const CardContainer = (props) => {
           className="card-image rounded-0"
         />
       </div>
-      <Card.Body className="mt-3 d-flex justify-content-between">
-        <Card.Text style={{ fontSize: "1.4rem", letterSpacing: "0.1px" }}>
-          ${price}
-        </Card.Text>
-        <Button variant="info" onClick={AddToCartOnclickHanldler}>
+
+      <Card.Body className="mt-3 d-flex justify-content-between p-2">
+        <Card.Text>${price}</Card.Text>
+
+        <NavLink
+          to={`Product/${props.id}`}
+          className={({ isActive }) =>
+            `${isActive ? "text-light p-1" : "text-decoration-none p-1"}`
+          }>
+          <Button
+            variant="info"
+            className="ms-3 me-3"
+            style={{
+              fontSize: "12px",
+              paddingTop: "10px",
+              paddingBottom: "10px",
+            }}>
+            View Details
+          </Button>
+        </NavLink>
+
+        <Button
+          variant="info"
+          style={{ fontSize: "12px" }}
+          onClick={AddToCartOnclickHanldler}>
           Add to Cart
         </Button>
       </Card.Body>
