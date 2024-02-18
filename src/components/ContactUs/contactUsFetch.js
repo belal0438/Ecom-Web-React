@@ -7,7 +7,7 @@ const ContactUsFetch = (props) => {
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
   const GetSubmitDataFromContactUsForm = async (data) => {
-    console.log("getDataFromForm", data);
+    // console.log("getDataFromForm", data);
     try {
       const firebaseApiUrl =
         "https://ecom-web-35eba-default-rtdb.firebaseio.com/contactUserData.json";

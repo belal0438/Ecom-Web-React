@@ -14,7 +14,8 @@ const NavBar = (props) => {
     if (
       location.pathname === "/Home" ||
       location.pathname === "/About" ||
-      location.pathname === "/Contact"
+      location.pathname === "/Contact" ||
+      location.pathname === "/Login"
     ) {
       setCartBtn(false);
     } else {
@@ -58,6 +59,18 @@ const NavBar = (props) => {
                 `${isActive ? "text-light" : "text-light text-decoration-none"}`
               }>
               ABOUT
+            </NavLink>
+
+            <NavLink
+              to="/Login"
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "text-light me-4 ms-4"
+                    : "text-light me-4 ms-4 text-decoration-none"
+                }`
+              }>
+              LOGIN
             </NavLink>
 
             <NavLink

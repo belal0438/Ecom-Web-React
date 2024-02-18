@@ -7,6 +7,8 @@ import About from "./components/About/about";
 import Home from "./components/Home/home.js";
 import ContactUsFetch from "./components/ContactUs/contactUsFetch.js";
 import ProductDetailValue from "./components/ProductDetails/productDetailValue.js";
+import UserLogin from "./components/UserLogin/userLogin.js";
+import { AuthContextProvider } from "./AuthContextAPi/Auth-context.js";
 
 /*
 React Bootsrap configuration
@@ -32,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="" element={<StorePage />} />
       <Route path="Product/:ProductId" element={<ProductDetailValue />} />
       <Route path="About" element={<About />} />
+      <Route path="Login" element={<UserLogin />} />
       <Route path="Home" element={<Home />} />
       <Route path="Contact" element={<ContactUsFetch />} />
     </Route>
@@ -40,7 +43,9 @@ const router = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <AuthContextProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </AuthContextProvider>
 );
