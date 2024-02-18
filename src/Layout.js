@@ -16,15 +16,17 @@ const Layout = () => {
   };
 
   return (
-    <ContextProvider>
-      <App
-        showCart={showCart}
-        cartModelShow={cartModelShow}
-        closeCartModel={closeCartModel}
-      />
-      <Outlet />
-      <FooterPage />
-    </ContextProvider>
+    <>
+      <ContextProvider>
+        <App
+          showCart={showCart}
+          cartModelShow={cartModelShow}
+          closeCartModel={closeCartModel}
+        />
+        <Outlet />
+        <FooterPage />
+      </ContextProvider>
+    </>
   );
 };
 

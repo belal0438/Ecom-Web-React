@@ -12,10 +12,10 @@ export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(initialTokenValue);
 
   const userLoggedIn = !!token;
-
+  // console.log("userLoggedIn", userLoggedIn);
   const logInHndler = (token) => {
-    setToken(token);
     localStorage.setItem("token", token);
+    setToken(token);
   };
 
   const logOutHandler = () => {
@@ -29,6 +29,8 @@ export const AuthContextProvider = (props) => {
     login: logInHndler,
     logout: logOutHandler,
   };
+
+  // console.log("contextVlaue", contextVlaue);
 
   return (
     <AuthContext.Provider value={contextVlaue}>

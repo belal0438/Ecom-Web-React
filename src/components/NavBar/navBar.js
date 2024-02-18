@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import ShowCartBtn from "./showCartBtn";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import AuthContext from "../../AuthContextAPi/Auth-context";
 
 const NavBar = (props) => {
   const [cartBtn, setCartBtn] = useState(true);
   const location = useLocation();
+  const AuthCtxt = useContext(AuthContext);
+  const isLoggedIn = AuthCtxt.isLoggedIn;
 
   useEffect(() => {
     // Check the pathname to determine whether to show the cart button
@@ -34,25 +37,32 @@ const NavBar = (props) => {
           id="basic-navbar-nav"
           className="d-flex justify-content-center">
           <Nav>
-            <NavLink
-              to="/Home"
-              className={({ isActive }) =>
-                `${isActive ? "text-light" : "text-light text-decoration-none"}`
-              }>
-              HOME
-            </NavLink>
+            {isLoggedIn && (
+              <NavLink
+                to="/Home"
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "text-light" : "text-light text-decoration-none"
+                  }`
+                }>
+                HOME
+              </NavLink>
+            )}
 
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `${
-                  isActive
-                    ? "text-light me-4 ms-4"
-                    : "text-light text-decoration-none me-4 ms-4"
-                }`
-              }>
-              STORE
-            </NavLink>
+            {isLoggedIn && (
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "text-light me-4 ms-4"
+                      : "text-light text-decoration-none me-4 ms-4"
+                  }`
+                }>
+                STORE
+              </NavLink>
+            )}
+
             <NavLink
               to="/About"
               className={({ isActive }) =>
@@ -61,17 +71,19 @@ const NavBar = (props) => {
               ABOUT
             </NavLink>
 
-            <NavLink
-              to="/Login"
-              className={({ isActive }) =>
-                `${
-                  isActive
-                    ? "text-light me-4 ms-4"
-                    : "text-light me-4 ms-4 text-decoration-none"
-                }`
-              }>
-              LOGIN
-            </NavLink>
+            {!isLoggedIn && (
+              <NavLink
+                to="/Login"
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "text-light me-4 ms-4"
+                      : "text-light me-4 ms-4 text-decoration-none"
+                  }`
+                }>
+                LOGIN
+              </NavLink>
+            )}
 
             <NavLink
               to="/Contact"
