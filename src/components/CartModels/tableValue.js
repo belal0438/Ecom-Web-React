@@ -9,7 +9,6 @@ import CartContext from "../ContextApi/cart-context";
 const TableValue = () => {
   const Cntxt = useContext(CartContext);
   const Quantity = useRef(1);
-
   const OnclickRemoveHandler = (id) => {
     Cntxt.removeItem(id);
   };

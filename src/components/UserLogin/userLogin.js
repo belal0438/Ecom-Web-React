@@ -52,6 +52,7 @@ const UserLogin = () => {
         const resultData = await result.data;
         AuthCtxt.login(resultData.idToken);
         navigate("/");
+        localStorage.setItem("email", resultData.email);
         return resultData;
       } else {
         setIsLoading(false);
