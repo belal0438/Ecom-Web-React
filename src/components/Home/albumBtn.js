@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
+import { Button, Image } from "react-bootstrap";
 import PalyBtnImg from "../../assets/play-button.png";
 const AlbumBtn = () => {
   return (

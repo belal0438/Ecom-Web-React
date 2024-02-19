@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import ShowCartBtn from "./showCartBtn";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import AuthContext from "../../AuthContextAPi/Auth-context";

@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import CartContext from "../ContextApi/cart-context";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
-import Row from "react-bootstrap/Row";
-
+import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 const ProductDetails = (props) => {
   const contxt = useContext(CartContext);
   const { id, imageUrl, price, title } = props.productDetails[0];

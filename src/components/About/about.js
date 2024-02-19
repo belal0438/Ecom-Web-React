@@ -1,7 +1,5 @@
 import React from "react";
-// import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
+import { Card, Image } from "react-bootstrap";
 import ImageUrl from "../../assets/mohd_belal.jpeg";
 
 const About = () => {

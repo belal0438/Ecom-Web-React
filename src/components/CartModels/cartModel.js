@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import CloseButton from "react-bootstrap/CloseButton";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { CloseButton, Button, Card } from "react-bootstrap";
 import TableValue from "./tableValue";
 import OverLay from "./overLay";
 import CartContext from "../ContextApi/cart-context";

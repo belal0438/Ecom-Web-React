@@ -1,8 +1,5 @@
 import React, { useContext, useRef } from "react";
-import Table from "react-bootstrap/Table";
-import Image from "react-bootstrap/Image";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+import { Table, Image, Container, Button } from "react-bootstrap";
 import "./cartModel.css";
 import CartContext from "../ContextApi/cart-context";
 

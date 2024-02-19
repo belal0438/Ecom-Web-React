@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { Button, Card } from "react-bootstrap";
 import CartContext from "../../ContextApi/cart-context";
 import "./CustomeCssforScaleUp.css";
 import { NavLink } from "react-router-dom";
